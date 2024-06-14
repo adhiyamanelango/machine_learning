@@ -1,0 +1,15 @@
+def polynomial_regression(X, y, degree, iterations=1000, alpha=0.001):
+    # Create polynomial features
+    X_poly = np.vander(X, degree + 1)
+
+    # Perform linear regression
+    theta = linear_regression(X_poly, y, iterations, alpha)
+
+    return theta
+
+# Example usage
+X = np.array([1, 2, 3, 4, 5])
+y = np.array([2, 4, 6, 8, 10])
+
+theta = polynomial_regression(X, y, degree=2)
+print("Estimated coefficients:", theta)
